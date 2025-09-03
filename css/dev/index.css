@@ -111,6 +111,10 @@ h6 {
   /* ================================================================= */
   --shadow-menu: rgba(4, 14, 29, 0.25);
   /* ================================================================= */
+  /* Transition Timing Function: : */
+  /* ================================================================= */
+  --timing-function-01: cubic-bezier(.215,.61,.355,1);
+  /* ================================================================= */
 }
 body {
   min-width: 20rem;
@@ -142,7 +146,7 @@ body {
   padding-left: 0.625rem;
   padding-right: 0.625rem;
 }
-.img > * {
+.img img {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -277,8 +281,7 @@ body {
 }
 .goals__column-item-link {
   display: inline;
-  transition: color 0.6s;
-  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: color 0.6s var(--timing-function-01);
   will-change: color;
 }
 .goals__column-item-img {
@@ -316,6 +319,11 @@ body {
     line-height: 150%;
   }
 }
+@media (max-width: 29.99875em){
+  .goals__column:last-child .goals__column-item {
+    min-height: 12.5rem;
+  }
+}
 @media (max-width: 24.37375em){
   .text--small {
     font-size: 0.875rem;
@@ -340,8 +348,8 @@ body {
   .text--smallest {
     font-size: 1rem;
   }
-  .mb-40-15:not(:last-child) {
-    margin-bottom: 0.9375rem;
+  .mb-40-10:not(:last-child) {
+    margin-bottom: 0.625rem;
   }
   .mb-70-40:not(:last-child) {
     margin-bottom: 2.5rem;
@@ -380,8 +388,8 @@ body {
   .text--smallest {
     font-size: clamp( 1rem , 0.960784313725rem  +  0.1960784314vw , 1.125rem );
   }
-  .mb-40-15:not(:last-child) {
-    margin-bottom: clamp( 0.9375rem , 0.44730392156875rem  +  2.4509803922vw , 2.5rem );
+  .mb-40-10:not(:last-child) {
+    margin-bottom: clamp( 0.625rem , 0.03676470588125rem  +  2.9411764706vw , 2.5rem );
   }
   .mb-70-40:not(:last-child) {
     margin-bottom: clamp( 2.5rem , 1.91176470588125rem  +  2.9411764706vw , 4.375rem );
@@ -432,7 +440,7 @@ body {
   .text--smallest {
     font-size: 1.125rem;
   }
-  .mb-40-15:not(:last-child) {
+  .mb-40-10:not(:last-child) {
     margin-bottom: 2.5rem;
   }
   .mb-70-40:not(:last-child) {
