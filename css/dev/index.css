@@ -76,6 +76,7 @@ h6 {
   /* Site colors (Кольори сайту): */
   /* ================================================================= */
   --white: #FFFFFF;
+  --dark: #000000;
   --main: #172039;
   --accent: #B29063;
   --neutral: #EDEDED;
@@ -133,6 +134,10 @@ body {
   overflow: hidden;
   touch-action: none;
   overscroll-behavior: none;
+}
+[data-fls-loaded] body {
+  transition: opacity 0.4s;
+  opacity: 1;
 }
 .wrapper {
   min-height: 100%;
@@ -418,19 +423,42 @@ body {
   min-height: 100svh;
   align-content: flex-end;
 }
-.hero__video {
+.hero__background {
   position: absolute;
-  inset: 0;
   z-index: -1;
   height: 200%;
+  width: calc(100% + 0.0625rem);
+  top: 0;
 }
-.hero__video video {
+.hero__background::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background-color: var(--dark);
+  opacity: 0;
+}
+[data-fls-loaded] .hero__background::before {
+  animation: opacity 0.6s linear 1.8s forwards;
+}
+.hero__background:has(iframe) {
+  left: 50%;
+  transform: translateX(calc(-50% - 0.0625rem));
+}
+.hero__background video {
   height: 50%;
+  width: 100%;
   position: sticky;
   top: 0;
   object-position: bottom;
+  object-fit: cover;
+  opacity: 0;
 }
-.hero__video iframe {
+[data-fls-loaded] .hero__background video {
+  opacity: 1;
+  transition: opacity 0.6s 2s;
+}
+.hero__background iframe {
   position: sticky;
   top: 0;
   width: 100vw;
@@ -438,6 +466,32 @@ body {
   min-height: 100vh;
   min-width: 177.77vh;
   pointer-events: none;
+  opacity: 0;
+}
+[data-fls-loaded] .hero__background iframe {
+  opacity: 1;
+  transition: opacity 0.6s 2s;
+}
+.hero__background-img {
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.hero__background-img img {
+  will-change: transform;
+  transform: scale(1.2);
+  transition: transform 2s;
+  transition-timing-function: var(--timing-function-01);
+  object-position: bottom;
+}
+[data-fls-loaded] .hero__background-img {
+  opacity: 0;
+  transition: opacity 0.5s 1.85s;
+}
+[data-fls-loaded] .hero__background-img img {
+  transform: scale(1);
 }
 .hero__content {
   position: relative;
@@ -455,14 +509,34 @@ body {
   opacity: 1;
   transform: translate(0, 0);
   transition: opacity var(--duration), transform var(--duration);
-  transition-delay: calc(0.4s + 0.02s * var(--char-index));
+  transition-delay: calc(0.6s + 0.02s * var(--char-index));
 }
 [data-fls-loaded] .hero__sub-title .char {
   --duration: 0.8s;
   opacity: 1;
   transform: translate(0, 0);
   transition: opacity var(--duration), transform var(--duration);
-  transition-delay: calc(0s + 0.015s * var(--char-index));
+  transition-delay: calc(0.2s + 0.015s * var(--char-index));
+}
+.hero__button {
+  opacity: 0;
+  transform: translate(0, -1rem);
+}
+[data-fls-loaded] .hero__button {
+  transition: 0.6s opacity 1s, 0.6s transform 1s;
+  opacity: 1;
+  transform: translate(0, 0);
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .what-we-do {

@@ -3,12 +3,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>body{opacity: 0;}</style>
 		<!-- <link rel="shortcut icon" href="@img/favicon.ico"> -->
 		<link rel="shortcut icon" href="./assets/img/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: light)">
 		<link rel="shortcut icon" href="./assets/img/favicon-light.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
 		<title>CD Corp - Home</title>
-		<script type="module" crossorigin="" src="./js/index.min.js?v=1757506134368"></script>
-		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1757506134368">
+		<script type="module" crossorigin="" src="./js/index.min.js?v=1757579353152"></script>
+		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1757579353152">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -17,12 +18,20 @@
 					<!-- <include src="@components/layout/menu/menu.html" locals='{"active":"Home"}'></include> -->
 				</div>
 			</header>
+			<script src="https://player.vimeo.com/api/player.js?v=1757579353152"></script>
 			<main class="page page--home">
 				<section class="hero">
 					<div class="hero__body">
-						<div class="hero__video video filter filter--gradient-hero">
+						<div class="hero__background filter filter--gradient-hero">
 							<!-- <video src="@video/hero/reverse/hero-video-02.mp4" muted autoplay loop></video> -->
-							<iframe src="https://player.vimeo.com/video/1116059295?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="hero-video-02"></iframe>
+							<iframe src="https://player.vimeo.com/video/1116059295?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;background=1" id="vimeo-player" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="hero-video-02"></iframe>
+							<div class="hero__background-img img">
+								<picture>
+									<source media="(max-width: 600px)" srcset="./assets/img/hero/01-600.webp" type="image/webp">
+									<source media="(max-width: 1200px)" srcset="./assets/img/hero/01-1200.webp" type="image/webp">
+									<img alt="Image" src="./assets/img/hero/01.webp">
+								</picture>
+							</div>
 						</div>
 						<div class="hero__content">
 							<div class="hero__text-content">
