@@ -8,29 +8,56 @@
 		<link rel="shortcut icon" href="./assets/img/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: light)">
 		<link rel="shortcut icon" href="./assets/img/favicon-light.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
 		<title>CD Corp - Home</title>
-		<script type="module" crossorigin="" src="./js/index.min.js?v=1757579353152"></script>
-		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1757579353152">
+		<script type="module" crossorigin="" src="./js/index.min.js?v=1757940223882"></script>
+		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1757940223882">
 	</head>
 	<body>
 		<div class="wrapper">
 			<header data-fls-header="" class="header">
-				<div class="header__container">
-					<!-- <include src="@components/layout/menu/menu.html" locals='{"active":"Home"}'></include> -->
+				<div class="header__body">
+					<div class="logo">
+						<a href="/" class="logo__icon img img--contain">
+							<img src="./assets/img/favicon-light.svg" alt="Logo">
+						</a>
+					</div>
+					<div class="header__menu menu">
+						<nav class="menu__body">
+							<ul class="menu__list">
+								<li class="menu__item">
+									<a href="#" class="menu__link">home</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">Services</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">podcasts</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">Blog</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">About</a>
+								</li>
+							</ul>
+							<button type="button" data-fls-menu="" class="menu__icon icon-menu" aria-label="icon menu">
+								<span></span>
+							</button>
+						</nav>
+					</div>
+					<div class="header__button">
+						<button type="button" class="button button--main" data-fls-button="">Contact Us</button>
+					</div>
 				</div>
 			</header>
-			<script src="https://player.vimeo.com/api/player.js?v=1757579353152"></script>
+			<script src="https://player.vimeo.com/api/player.js?v=1757940223882"></script>
 			<main class="page page--home">
 				<section class="hero">
 					<div class="hero__body">
-						<div class="hero__background filter filter--gradient-hero">
+						<div class="hero__background filter filter--hero">
 							<!-- <video src="@video/hero/reverse/hero-video-02.mp4" muted autoplay loop></video> -->
 							<iframe src="https://player.vimeo.com/video/1116059295?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;background=1" id="vimeo-player" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="hero-video-02"></iframe>
 							<div class="hero__background-img img">
-								<picture>
-									<source media="(max-width: 600px)" srcset="./assets/img/hero/01-600.webp" type="image/webp">
-									<source media="(max-width: 1200px)" srcset="./assets/img/hero/01-1200.webp" type="image/webp">
-									<img alt="Image" src="./assets/img/hero/01.webp">
-								</picture>
+								<img data-fls-image-ignore="" src="./assets/img/hero/01.jpg" alt="Image">
 							</div>
 						</div>
 						<div class="hero__content">
@@ -44,7 +71,7 @@
 						</div>
 					</div>
 				</section>
-				<div class="what-we-do">
+				<div class="what-we-do" data-fls-watcher="" data-fls-watcher-margin="-200px">
 					<div class="what-we-do__container">
 						<div class="what-we-do__body">
 							<div class="what-we-do__sub-title sub-title sub-title--center mb-16">What we do</div>
