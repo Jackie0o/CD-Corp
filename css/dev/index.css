@@ -1178,6 +1178,9 @@ body {
   }
 }
 @media (max-width: 20em){
+  .logo {
+    width: 5rem;
+  }
   .title {
     font-size: 1.5rem;
   }
@@ -1227,6 +1230,9 @@ body {
   }
 }
 @media (min-width: 20em) and (max-width: 93.75em){
+  .logo {
+    width: clamp( 5rem , 4.66101694915rem  +  1.6949152542vw , 6.25rem );
+  }
   .title {
     font-size: clamp( 1.5rem , 1.29661016949375rem  +  1.0169491525vw , 2.25rem );
   }
@@ -1323,6 +1329,9 @@ body {
   }
 }
 @media (min-width: 93.75em){
+  .logo {
+    width: 6.25rem;
+  }
   .title {
     font-size: 2.25rem;
   }
