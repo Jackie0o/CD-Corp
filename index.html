@@ -8,8 +8,8 @@
 		<link rel="shortcut icon" href="./assets/img/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: light)">
 		<link rel="shortcut icon" href="./assets/img/favicon-light.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
 		<title>CD Corp - Home</title>
-		<script type="module" crossorigin="" src="./js/index.min.js?v=1757942031628"></script>
-		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1757942031628">
+		<script type="module" crossorigin="" src="./js/index.min.js?v=1758023072375"></script>
+		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1758023072375">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -39,17 +39,23 @@
 									<a href="#" class="menu__link">About</a>
 								</li>
 							</ul>
-							<button type="button" data-fls-menu="" class="menu__icon icon-menu" aria-label="icon menu">
-								<span></span>
-							</button>
 						</nav>
 					</div>
 					<div class="header__button">
+						<div class="header__button-icon img img--contain">
+							<picture>
+								<source srcset="./assets/img/email_01.webp" type="image/webp">
+								<img alt="Image" src="./assets/img/email_01.png">
+							</picture>
+						</div>
 						<button type="button" class="button button--main" data-fls-button="">Contact Us</button>
 					</div>
+					<button type="button" data-fls-menu="" class="icon-menu" aria-label="icon menu">
+						<span></span>
+					</button>
 				</div>
 			</header>
-			<script src="https://player.vimeo.com/api/player.js?v=1757942031628"></script>
+			<script src="https://player.vimeo.com/api/player.js?v=1758023072375"></script>
 			<main class="page page--home">
 				<section class="hero">
 					<div class="hero__body">
@@ -66,13 +72,13 @@
 								<div class="hero__sub-title sub-title sub-title--white sub-title--large fade-right-in" data-splitting="">Duis congue mauric</div>
 							</div>
 							<div class="hero__button">
-								<a data-fls-button="" href="#" class="button button--light">View More</a>
+								<a data-fls-button="" href="" data-fls-scrollto=".what-we-do" class="button button--light">View More</a>
 							</div>
 						</div>
 					</div>
 				</section>
-				<div class="what-we-do" data-fls-watcher="" data-fls-watcher-margin="-200px">
-					<div class="what-we-do__container">
+				<div class="what-we-do">
+					<div class="what-we-do__container" data-fls-watcher="" data-fls-watcher-margin="-50px">
 						<div class="what-we-do__body">
 							<div class="what-we-do__sub-title sub-title sub-title--center mb-16">What we do</div>
 							<h2 class="what-we-do__title title title title--big title--center mb-25">Lorem ipsum dolor sit amet</h2>
