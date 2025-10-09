@@ -117,14 +117,85 @@ const gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 0) =>
   }
 };
 function menuInit() {
-  document.addEventListener("click", function(e) {
-    if (bodyLockStatus && e.target.closest("[data-fls-menu]")) {
+  const menuButton = document.querySelector("[data-fls-menu]");
+  const menuBody = document.querySelector(".menu__body");
+  if (!menuButton || !menuBody) return;
+  const isMenuOpen = () => document.documentElement.hasAttribute("data-fls-menu-open");
+  function openMenu() {
+    if (!isMenuOpen()) {
       bodyLockToggle();
-      document.documentElement.toggleAttribute("data-fls-menu-open");
+      document.documentElement.setAttribute("data-fls-menu-open", "");
+      history.pushState({ flsMenu: true }, "");
+    }
+  }
+  function closeMenu(popHistory = true) {
+    if (!isMenuOpen()) return;
+    bodyLockToggle();
+    document.documentElement.removeAttribute("data-fls-menu-open");
+    if (popHistory) {
+      history.back();
+    }
+  }
+  document.addEventListener("click", (e) => {
+    const clickedBtn = e.target.closest("[data-fls-menu]");
+    const clickedInsideMenu = e.target.closest(".menu__body");
+    const clickedMenuLink = e.target.closest(".menu__body a");
+    if (bodyLockStatus && clickedBtn) {
+      if (isMenuOpen()) closeMenu(true);
+      else openMenu();
+      return;
+    }
+    if (isMenuOpen() && !clickedInsideMenu) {
+      closeMenu(true);
+      return;
+    }
+    if (isMenuOpen() && clickedMenuLink) {
+      closeMenu(true);
+    }
+  });
+  window.addEventListener("popstate", (event) => {
+    if (isMenuOpen()) {
+      closeMenu(false);
     }
   });
 }
 document.querySelector("[data-fls-menu]") ? window.addEventListener("load", menuInit) : null;
+function headerScroll() {
+  const header = document.querySelector("[data-fls-header-scroll]");
+  const headerShow = header.hasAttribute("data-fls-header-scroll-show");
+  const headerShowTimer = header.dataset.flsHeaderScrollShow ? header.dataset.flsHeaderScrollShow : 500;
+  const startPoint = header.dataset.flsHeaderScroll ? header.dataset.flsHeaderScroll : 1;
+  let scrollDirection = 0;
+  let timer;
+  document.addEventListener("scroll", function(e) {
+    const scrollTop = window.scrollY;
+    clearTimeout(timer);
+    if (scrollTop >= startPoint) {
+      if (scrollTop > scrollDirection) {
+        header.classList.add("--header-hide") & header.classList.remove("--header-scroll");
+      } else {
+        header.classList.remove("--header-hide") & header.classList.add("--header-scroll");
+      }
+      if (headerShow) {
+        if (scrollTop > scrollDirection) {
+          header.classList.contains("--header-show") ? header.classList.remove("--header-show") : null;
+        } else {
+          !header.classList.contains("--header-show") ? header.classList.add("--header-show") : null;
+        }
+        timer = setTimeout(() => {
+          !header.classList.contains("--header-show") ? header.classList.add("--header-show") : null;
+        }, headerShowTimer);
+      }
+    } else {
+      header.classList.contains("--header-scroll") ? header.classList.remove("--header-scroll") : null;
+      if (headerShow) {
+        header.classList.contains("--header-show") ? header.classList.remove("--header-show") : null;
+      }
+    }
+    scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
+  });
+}
+document.querySelector("[data-fls-header-scroll]") ? window.addEventListener("load", headerScroll) : null;
 class ScrollWatcher {
   constructor(props) {
     let defaultConfig = {
