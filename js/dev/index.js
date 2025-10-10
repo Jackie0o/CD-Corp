@@ -139,7 +139,7 @@ function menuInit() {
   document.addEventListener("click", (e) => {
     const clickedBtn = e.target.closest("[data-fls-menu]");
     const clickedInsideMenu = e.target.closest(".menu__body");
-    const clickedMenuLink = e.target.closest(".menu__body a");
+    e.target.closest(".menu__body a");
     if (bodyLockStatus && clickedBtn) {
       if (isMenuOpen()) closeMenu(true);
       else openMenu();
@@ -148,9 +148,6 @@ function menuInit() {
     if (isMenuOpen() && !clickedInsideMenu) {
       closeMenu(true);
       return;
-    }
-    if (isMenuOpen() && clickedMenuLink) {
-      closeMenu(true);
     }
   });
   window.addEventListener("popstate", (event) => {
