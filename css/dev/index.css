@@ -352,6 +352,21 @@ body {
   align-items: center;
   padding-block: 0.625rem;
 }
+.header__body::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  right: -100%;
+  top: 0;
+  background-color: var(--main);
+  transition: right 0.5s var(--animation-primary);
+  z-index: 3;
+  pointer-events: none;
+}
+[data-fls-menu-open] .header__body::before {
+  right: 0%;
+}
 .header__button {
   justify-self: flex-end;
 }
@@ -1431,9 +1446,7 @@ html[data-fls-menu-open] .footer {
     z-index: 1;
     opacity: 0;
     transition: opacity 0.5s 0.1s;
-  }
-  .--header-scroll .menu::after {
-    top: 3.75rem;
+    pointer-events: none;
   }
   [data-fls-menu-open] .menu::after {
     opacity: 1;
@@ -1451,21 +1464,7 @@ html[data-fls-menu-open] .footer {
     transition: right 0.5s var(--animation-primary);
     background-color: var(--main);
   }
-  .menu__body::before {
-    content: "";
-    position: fixed;
-    width: 40%;
-    height: 3.75rem;
-    right: -100%;
-    top: 0;
-    background-color: var(--main);
-    transition: right 0.5s var(--animation-primary);
-    z-index: 2;
-  }
   [data-fls-menu-open] .menu__body {
-    right: 0;
-  }
-  [data-fls-menu-open] .menu__body::before {
     right: 0;
   }
   .menu__list {
@@ -1517,6 +1516,10 @@ html[data-fls-menu-open] .footer {
   }
   [data-fls-header-scroll].--header-scroll {
     background-color: rgba(0, 0, 0, 0.7);
+  }
+  [data-fls-menu-open] [data-fls-header-scroll].--header-scroll {
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.5s 0.1s;
   }
   .hero__content {
     flex-direction: column;
@@ -2043,7 +2046,7 @@ html[data-fls-menu-open] .footer {
   }
 }
 @media (max-width: 29.99875em){
-  .header {
+  .header__body {
     padding-inline: 0.625rem;
   }
   .hero__content {
@@ -2200,7 +2203,7 @@ html[data-fls-menu-open] .footer {
   }
 }
 @media (min-width: 29.99875em) and (max-width: 120em){
-  .header {
+  .header__body {
     padding-inline: clamp( 0.625rem , -0.8332523159375rem  +  4.8610435966vw , 5rem );
   }
   .hero__content {
@@ -2660,7 +2663,7 @@ html[data-fls-menu-open] .footer {
   .menu__list {
     gap: 3.75rem;
   }
-  .header {
+  .header__body {
     padding-inline: 5rem;
   }
   .hero__content {
