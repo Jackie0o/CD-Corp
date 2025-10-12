@@ -132,6 +132,12 @@ html,
 body {
   scroll-behavior: smooth;
 }
+[data-fls-menu-open] a {
+  pointer-events: none;
+}
+[data-fls-menu-open] .header a {
+  pointer-events: all;
+}
 body {
   min-width: 20rem;
   color: var(--text-dark);
@@ -3707,16 +3713,19 @@ html[data-fls-menu-open] .footer {
   inline-size: 3.875rem;
   aspect-ratio: 1;
 }
+.podcast__slider {
+  position: relative;
+}
 .podcast__slide {
   pointer-events: none;
-  display: grid;
-  grid-template-columns: 63% 37%;
+  display: flex;
 }
 .podcast__slide.swiper-slide-active {
   pointer-events: auto;
 }
 .podcast__visual-item {
   position: relative;
+  flex-shrink: 0;
 }
 .podcast__visual-item-link {
   width: 100%;
@@ -3753,6 +3762,7 @@ html[data-fls-menu-open] .footer {
   aspect-ratio: 1;
 }
 .podcast__text-item {
+  flex-basis: 37%;
   position: relative;
   padding-block: 1.875rem;
   align-content: flex-end;
@@ -3769,12 +3779,29 @@ html[data-fls-menu-open] .footer {
   transition-delay: 0.4s;
 }
 .podcast .swiper-actions {
+  pointer-events: none;
   position: absolute;
-  bottom: 1.25rem;
-  right: 1.25rem;
+  top: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 0.625rem;
+}
+.podcast .swiper-button-prev,
+.podcast .swiper-button-next {
+  pointer-events: all;
+  width: 2.5rem;
+  aspect-ratio: 1;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: opacity 0.5s;
+  padding: 0.625rem;
+}
+.podcast .swiper-button-prev img {
+  transform: rotate(180deg);
 }
 @media (max-width: 61.99875em) and (any-hover: none){
   .icon-menu {
@@ -4412,7 +4439,7 @@ html[data-fls-menu-open] .footer {
     margin-inline: auto;
   }
   .podcast__visual-item {
-    min-height: 21.875rem;
+    height: 21.875rem;
   }
   [data-fls-watcher] .podcast__visual-item-link {
     clip-path: inset(2.5rem);
@@ -4423,14 +4450,17 @@ html[data-fls-menu-open] .footer {
   [data-fls-watcher].--watcher-view .podcast__text-item {
     transition-delay: 0.2s;
   }
+  .podcast .swiper-button-prev,
+  .podcast .swiper-button-next {
+    cursor: default;
+  }
 }
 @media (max-width: 47.99875em){
   .text {
     line-height: 150%;
   }
   .podcast__slide {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
+    flex-direction: column;
   }
 }
 @media (max-width: 29.99875em){
@@ -4447,7 +4477,16 @@ html[data-fls-menu-open] .footer {
     padding-inline: 0.625rem;
   }
   .goals__column:last-child .goals__column-item {
-    padding: 0.625rem;
+    padding-right: 0.625rem;
+  }
+  .goals__column:last-child .goals__column-item {
+    padding-left: 0.625rem;
+  }
+  .goals__column:last-child .goals__column-item {
+    padding-block: 0.625rem;
+  }
+  .goals__column:last-child .goals__column-item:nth-child(even) {
+    padding-right: 0.625rem;
   }
   .goals__column:last-child .goals__column-item {
     min-height: 12.5rem;
@@ -4462,6 +4501,12 @@ html[data-fls-menu-open] .footer {
     padding-inline: 6.25e-8rem;
   }
   .podcast__text-item {
+    padding-left: 0.625rem;
+  }
+  .podcast__text-item {
+    padding-right: 0.625rem;
+  }
+  .podcast .swiper-actions {
     padding-inline: 0.625rem;
   }
 }
@@ -4601,7 +4646,13 @@ html[data-fls-menu-open] .footer {
 }
 @media (min-width: 29.99875em) and (max-width: 92.5em){
   .podcast__text-item {
-    padding-inline: clamp( 0.625rem , 0.4750092498125rem  +  0.4999900002vw , 0.9375rem );
+    padding-left: clamp( 0.625rem , -0.2749445011125rem  +  2.9999400012vw , 2.5rem );
+  }
+  .podcast__text-item {
+    padding-right: clamp( 0.625rem , -1.4748705025875rem  +  6.9998600028vw , 5rem );
+  }
+  .podcast .swiper-actions {
+    padding-inline: clamp( 0.625rem , -0.2749445011125rem  +  2.9999400012vw , 2.5rem );
   }
 }
 @media (min-width: 29.99875em) and (max-width: 120em){
@@ -4618,7 +4669,16 @@ html[data-fls-menu-open] .footer {
     padding-inline: clamp( 0.625rem , -0.8332523159375rem  +  4.8610435966vw , 5rem );
   }
   .goals__column:last-child .goals__column-item {
-    padding: clamp( 0.625rem , 0.0000347217375rem  +  2.0833043986vw , 2.5rem );
+    padding-right: clamp( 0.625rem , 0.0000347217375rem  +  2.0833043986vw , 2.5rem );
+  }
+  .goals__column:last-child .goals__column-item {
+    padding-left: clamp( 0.625rem , 0.0000347217375rem  +  2.0833043986vw , 2.5rem );
+  }
+  .goals__column:last-child .goals__column-item {
+    padding-block: clamp( 0.625rem , 0.0000347217375rem  +  2.0833043986vw , 2.5rem );
+  }
+  .goals__column:last-child .goals__column-item:nth-child(even) {
+    padding-right: clamp( 0.625rem , -0.8332523159375rem  +  4.8610435966vw , 5rem );
   }
   .goals__column-item {
     padding-inline: clamp( 0.625rem , -0.8332523159375rem  +  4.8610435966vw , 5rem );
@@ -4628,6 +4688,11 @@ html[data-fls-menu-open] .footer {
   }
   .services__body {
     padding-inline: clamp( 6.25e-8rem , -1.666573992025rem  +  5.5554783267vw , 5rem );
+  }
+}
+@media (min-width: 47.99875em){
+  .podcast__visual-item {
+    flex-basis: 63%;
   }
 }
 @media (min-width: 48rem){
@@ -4647,7 +4712,7 @@ html[data-fls-menu-open] .footer {
     min-height: clamp( 28.125rem , -1.09452481455625rem  +  47.1292160157vw , 42.5rem );
   }
   .podcast__visual-item {
-    min-height: clamp( 21.875rem , -20.048666038275rem  +  67.6201795008vw , 42.5rem );
+    height: clamp( 21.875rem , -20.048666038275rem  +  67.6201795008vw , 42.5rem );
   }
 }
 @media (min-width: 61.99875em) and (max-width: 120em){
@@ -5017,10 +5082,16 @@ html[data-fls-menu-open] .footer {
     min-height: 42.5rem;
   }
   .podcast__visual-item {
-    min-height: 42.5rem;
+    height: 42.5rem;
   }
   .podcast__text-item {
-    padding-inline: 0.9375rem;
+    padding-left: 2.5rem;
+  }
+  .podcast__text-item {
+    padding-right: 5rem;
+  }
+  .podcast .swiper-actions {
+    padding-inline: 2.5rem;
   }
 }
 @media (min-width: 93.75em){
@@ -5102,7 +5173,16 @@ html[data-fls-menu-open] .footer {
     padding-inline: 5rem;
   }
   .goals__column:last-child .goals__column-item {
-    padding: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .goals__column:last-child .goals__column-item {
+    padding-left: 2.5rem;
+  }
+  .goals__column:last-child .goals__column-item {
+    padding-block: 2.5rem;
+  }
+  .goals__column:last-child .goals__column-item:nth-child(even) {
+    padding-right: 5rem;
   }
   .goals__column-item {
     padding-inline: 5rem;
@@ -5140,5 +5220,9 @@ html[data-fls-menu-open] .footer {
   }
   .podcast__visual-item-link:hover .filter--hero::after {
     background: transparent;
+  }
+  .podcast .swiper-button-prev:hover,
+  .podcast .swiper-button-next:hover {
+    opacity: 1;
   }
 }
