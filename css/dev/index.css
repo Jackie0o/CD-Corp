@@ -3789,6 +3789,17 @@ html[data-fls-menu-open] .footer {
   align-items: center;
   gap: 0.625rem;
 }
+.podcast[data-fls-watcher] .swiper-actions,
+.podcast[data-fls-watcher] .podcast__visual-item-decor {
+  opacity: 0;
+  will-change: opacity;
+}
+.podcast[data-fls-watcher].--watcher-view .swiper-actions,
+.podcast[data-fls-watcher].--watcher-view .podcast__visual-item-decor {
+  opacity: 1;
+  transition: opacity 0.5s;
+  transition-delay: 0.6s;
+}
 .podcast .swiper-button-prev,
 .podcast .swiper-button-next {
   pointer-events: all;
@@ -4450,9 +4461,14 @@ html[data-fls-menu-open] .footer {
   [data-fls-watcher].--watcher-view .podcast__text-item {
     transition-delay: 0.2s;
   }
+  .podcast[data-fls-watcher].--watcher-view .swiper-actions,
+  .podcast[data-fls-watcher].--watcher-view .podcast__visual-item-decor {
+    transition-delay: 0.4s;
+  }
   .podcast .swiper-button-prev,
   .podcast .swiper-button-next {
     cursor: default;
+    opacity: 1;
   }
 }
 @media (max-width: 47.99875em){
