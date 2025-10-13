@@ -3763,6 +3763,7 @@ html[data-fls-menu-open] .footer {
 }
 .podcast__text-item {
   flex-basis: 37%;
+  flex-grow: 1;
   position: relative;
   padding-block: 1.875rem;
   align-content: flex-end;
@@ -3820,6 +3821,9 @@ html[data-fls-menu-open] .footer {
   }
 }
 @media (max-width: 61.99875em){
+  a {
+    cursor: default;
+  }
   .logo {
     margin-right: auto;
   }
@@ -4449,9 +4453,6 @@ html[data-fls-menu-open] .footer {
   .services__card-icon {
     margin-inline: auto;
   }
-  .podcast__visual-item {
-    height: 21.875rem;
-  }
   [data-fls-watcher] .podcast__visual-item-link {
     clip-path: inset(2.5rem);
   }
@@ -4477,6 +4478,9 @@ html[data-fls-menu-open] .footer {
   }
   .podcast__slide {
     flex-direction: column;
+  }
+  .podcast__visual-item {
+    height: 21.875rem;
   }
 }
 @media (max-width: 29.99875em){
@@ -4706,6 +4710,11 @@ html[data-fls-menu-open] .footer {
     padding-inline: clamp( 6.25e-8rem , -1.666573992025rem  +  5.5554783267vw , 5rem );
   }
 }
+@media (min-width: 47.99875em) and (max-width: 92.5em){
+  .podcast__slide {
+    min-height: clamp( 21.875rem , -0.3709867700375rem  +  46.3470127244vw , 42.5rem );
+  }
+}
 @media (min-width: 47.99875em){
   .podcast__visual-item {
     flex-basis: 63%;
@@ -4726,9 +4735,6 @@ html[data-fls-menu-open] .footer {
 @media (min-width: 61.99875em) and (max-width: 92.5em){
   .goals__body {
     min-height: clamp( 28.125rem , -1.09452481455625rem  +  47.1292160157vw , 42.5rem );
-  }
-  .podcast__visual-item {
-    height: clamp( 21.875rem , -20.048666038275rem  +  67.6201795008vw , 42.5rem );
   }
 }
 @media (min-width: 61.99875em) and (max-width: 120em){
@@ -5097,8 +5103,8 @@ html[data-fls-menu-open] .footer {
   .goals__body {
     min-height: 42.5rem;
   }
-  .podcast__visual-item {
-    height: 42.5rem;
+  .podcast__slide {
+    min-height: 42.5rem;
   }
   .podcast__text-item {
     padding-left: 2.5rem;
