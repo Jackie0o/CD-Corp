@@ -4849,11 +4849,11 @@ function initSliders() {
       //lazy: true,
       // Ефекти
       effect: "fade",
-      autoplay: {
-        delay: 5e3,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
-      },
+      // autoplay: {
+      // 	delay: 5000,
+      // 	disableOnInteraction: false,
+      // 	pauseOnMouseEnter: true,
+      // },
       // Пагінація
       /*
       pagination: {
@@ -5042,24 +5042,24 @@ function headerScroll() {
     clearTimeout(timer);
     if (scrollTop >= startPoint) {
       if (scrollTop > scrollDirection) {
-        header.classList.add("--header-hide") & header.classList.remove("--header-scroll");
+        header.classList.add("header-hide") & header.classList.remove("header-scroll");
       } else {
-        header.classList.remove("--header-hide") & header.classList.add("--header-scroll");
+        header.classList.remove("header-hide") & header.classList.add("header-scroll");
       }
       if (headerShow) {
         if (scrollTop > scrollDirection) {
-          header.classList.contains("--header-show") ? header.classList.remove("--header-show") : null;
+          header.classList.contains("header-show") ? header.classList.remove("header-show") : null;
         } else {
-          !header.classList.contains("--header-show") ? header.classList.add("--header-show") : null;
+          !header.classList.contains("header-show") ? header.classList.add("header-show") : null;
         }
         timer = setTimeout(() => {
-          !header.classList.contains("--header-show") ? header.classList.add("--header-show") : null;
+          !header.classList.contains("header-show") ? header.classList.add("header-show") : null;
         }, headerShowTimer);
       }
     } else {
-      header.classList.contains("--header-scroll") ? header.classList.remove("--header-scroll") : null;
+      header.classList.contains("header-scroll") ? header.classList.remove("header-scroll") : null;
       if (headerShow) {
-        header.classList.contains("--header-show") ? header.classList.remove("--header-show") : null;
+        header.classList.contains("header-show") ? header.classList.remove("header-show") : null;
       }
     }
     scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
@@ -8126,9 +8126,9 @@ class ScrollWatcher {
   // Функція обробки базових дій точок спрацьовування
   scrollWatcherIntersecting(entry, targetElement) {
     if (entry.isIntersecting) {
-      !targetElement.classList.contains("--watcher-view") ? targetElement.classList.add("--watcher-view") : null;
+      !targetElement.classList.contains("watcher-view") ? targetElement.classList.add("watcher-view") : null;
     } else {
-      targetElement.classList.contains("--watcher-view") ? targetElement.classList.remove("--watcher-view") : null;
+      targetElement.classList.contains("watcher-view") ? targetElement.classList.remove("watcher-view") : null;
     }
   }
   // Функція відключення стеження за об'єктом
