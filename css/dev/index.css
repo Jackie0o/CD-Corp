@@ -3839,6 +3839,8 @@ html[data-fls-menu-open] .footer {
   position: relative;
 }
 .testimonials__body {
+  max-width: 75rem;
+  margin-inline: auto;
   padding-inline: 2.5rem;
 }
 .testimonials__slide {
