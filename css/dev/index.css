@@ -216,6 +216,7 @@ body {
 }
 .filter--hero::after {
   background: var(--filter-hero);
+  z-index: 2;
 }
 .logo {
   flex-shrink: 0;
@@ -2923,17 +2924,6 @@ html[data-fls-menu-open] .footer {
   width: calc(100% + 0.125rem);
   top: 0;
 }
-.hero__background::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  background-color: var(--dark);
-  opacity: 0;
-}
-[data-fls-loaded] .hero__background::before {
-  animation: opacity 0.6s linear 1.8s forwards;
-}
 .hero__background:has(iframe) {
   left: 50%;
   transform: translateX(calc(-50% - 0.0625rem));
@@ -2942,6 +2932,7 @@ html[data-fls-menu-open] .footer {
   height: 50%;
   width: 100%;
   position: sticky;
+  z-index: 2;
   top: 0;
   object-position: bottom;
   object-fit: cover;
@@ -2953,6 +2944,7 @@ html[data-fls-menu-open] .footer {
 }
 .hero__background iframe {
   position: sticky;
+  z-index: 2;
   top: 0;
   width: 100vw;
   height: 56.25vw;
@@ -2969,6 +2961,7 @@ html[data-fls-menu-open] .footer {
   height: 50%;
   width: 100%;
   position: absolute;
+  z-index: 1;
   inset: 0;
   overflow: hidden;
 }
@@ -2978,10 +2971,6 @@ html[data-fls-menu-open] .footer {
   transition: transform 2s;
   transition-timing-function: var(--timing-function-01);
   object-position: bottom;
-}
-[data-fls-loaded] .hero__background-img {
-  opacity: 0;
-  transition: opacity 0.5s 1.85s;
 }
 [data-fls-loaded] .hero__background-img img {
   transform: scale(1);
