@@ -2940,7 +2940,7 @@ html[data-fls-menu-open] .footer {
 }
 [data-fls-loaded] .hero__background video {
   opacity: 1;
-  transition: opacity 0.6s 2s;
+  transition: opacity 0.6s 1.8s;
 }
 .hero__background iframe {
   position: sticky;
@@ -2955,7 +2955,7 @@ html[data-fls-menu-open] .footer {
 }
 [data-fls-loaded] .hero__background iframe {
   opacity: 1;
-  transition: opacity 0.6s 2s;
+  transition: opacity 0.6s 1.8s;
 }
 .hero__background-img {
   height: 50%;
