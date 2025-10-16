@@ -4531,9 +4531,6 @@ html[data-fls-menu-open] .footer {
   .header__body {
     padding-inline: 0.625rem;
   }
-  .header__body {
-    padding-block: 0.4375rem;
-  }
   .swiper-actions {
     padding-inline: 0.3125rem;
   }
